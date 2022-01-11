@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter your contact details:</title>
+</head>
+
+<body>
+    <h1>Input your contact details: </h1>
+    <form action="#" th:action="@{/contact}" th:object="${contact}" method="post">
+        <p>Name: <input type="text" th:field="*{name}" /></p>
+        <p>Email: <input type="text" th:field="*{email}" /></p>
+        <p>Phone Number: <input type="text" th:field="*{phone_number}" /></p>
+        <input type="submit" value="submit" />
+
+    </form>
+</body>
+
+</html>
