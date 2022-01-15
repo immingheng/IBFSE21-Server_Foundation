@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" />
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- start of container  -->
+
+
+
+
+
+        <h1>My TODO</h1>
+        <form method="POST" action="/task">
+
+            <input type="hidden" data-th-value="${contents}" name="contents">
+            <div>
+                <label for="taskName">Task Name: </label>
+                <input type="text" class="form-control" name="taskName" placeholder="Please enter a task">
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Add Task</button>
+                    <button type="submit" formaction="/task/save" formmethod="post" class="btn btn-danger">Save
+                        Task(s)</button>
+                </div>
+            </div>
+
+            <div data-th-if="${contents} == null"> You have no task(s) for the day :)</div>
+            <div data-th-if="${contents} != null"> Your list of tasks:
+                <ol class="list-group">
+                    <li data-th-each="t:${tasks}" class="list-group-item">
+                        <span data-th-text="${t}"></span>
+                    </li>
+                </ol>
+            </div>
+        </form>
+
+    </div> <!-- end of container -->
+
+    <!-- 
+    <h2 data-th-if="${contents==null}">You have no tasks</h2>
+    <div data-th-if="${contents!=null}">Your list of tasks:</div> -->
+
+</body>
+
+</html>

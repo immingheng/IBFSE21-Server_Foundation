@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query by ID</title>
+</head>
+
+<body th:object="${retrieval}">
+    <h1><b>Here's your contact information:</b></h1>
+    <p>Name: <span th:text="${retrieval.getName}">..</span></p> <br />
+    <p>Email: <span th:text="${retrieval.getEmail}">..</span></p> <br />
+    <p>Phone Number: <span th:text="${retrieval.getPhone_number}">..</span></p> <br />
+
+
+</body>
+
+</html>
