@@ -13,7 +13,7 @@
     <form action="#" th:action="@{/contact}" th:object="${contact}" method="post">
         <p>Name: <input type="text" th:field="*{name}" /></p>
         <p>Email: <input type="text" th:field="*{email}" /></p>
-        <p>Phone Number: <input type="text" th:field="*{phone_number}" /></p>
+        <p>Phone Number: <input type="number" th:field="*{phone_number}" /></p>
         <input type="submit" value="submit" />
 
     </form>

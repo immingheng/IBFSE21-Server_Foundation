@@ -8,11 +8,12 @@
     <title>Query by ID</title>
 </head>
 
-<body th:object="${retrieval}">
+<body th:object="${redisRetrieve}">
     <h1><b>Here's your contact information:</b></h1>
-    <p>Name: <span th:text="${retrieval.getName}">..</span></p> <br />
-    <p>Email: <span th:text="${retrieval.getEmail}">..</span></p> <br />
-    <p>Phone Number: <span th:text="${retrieval.getPhone_number}">..</span></p> <br />
+    <p>Contact ID: <span th:text="*{HexID}">..</span></p>
+    <p>Name: <span th:text="*{name}">..</span></p> <br />
+    <p>Email: <span th:text="*{email}">..</span></p> <br />
+    <p>Phone Number: <span th:text="*{phone_number}">..</span></p> <br />
 
 
 </body>

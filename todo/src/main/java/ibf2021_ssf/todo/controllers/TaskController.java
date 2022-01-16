@@ -78,7 +78,7 @@ public class TaskController {
     public String saveTask(@RequestBody MultiValueMap<String, String> form) {
         String contents = form.getFirst("contents");
         logger.info("contents --> " + contents);
-        taskService.save("my-todo", "jog");
+        taskService.save("my-todo", contents);
         return "index";
     }
 

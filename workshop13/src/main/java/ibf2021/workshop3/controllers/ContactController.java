@@ -88,6 +88,7 @@ public class ContactController {
                 osw.write(String.format(name + "\n"));
                 osw.write(String.format(email + "\n"));
                 osw.write(String.format(phoneNumber + "\n"));
+                osw.write(String.format(HexID + "\n"));
                 osw.flush();
                 fos.close();
 
@@ -129,12 +130,14 @@ public class ContactController {
                     toPrint.add(line.strip());
                 }
 
-                Contact contactFromServer = new Contact();
-                contactFromServer.setName(toPrint.get(0));
+                Contact contactFromServer = new Contact(toPrint.get(0), toPrint.get(1),
+                        Integer.parseInt(toPrint.get(2)),
+                        toPrint.get(3));
+                // contactFromServer.setName(toPrint.get(0));
                 logger.info("name --> " + toPrint.get(0));
-                contactFromServer.setEmail(toPrint.get(1));
+                // contactFromServer.setEmail(toPrint.get(1));
                 logger.info("email -->" + toPrint.get(1));
-                contactFromServer.setPhone_number(Integer.parseInt(toPrint.get(2)));
+                // contactFromServer.setPhone_number(Integer.parseInt(toPrint.get(2)));
                 logger.info("phone Number -->" + toPrint.get(2));
                 model.addAttribute("retrieval", contactFromServer);
             } catch (FileNotFoundException FNFe) {

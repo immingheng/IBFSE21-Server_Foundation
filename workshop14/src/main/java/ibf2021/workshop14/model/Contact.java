@@ -1,4 +1,4 @@
-package ibf2021.workshop3.model;
+package ibf2021.workshop14.model;
 
 import java.io.Serializable;
 import java.security.SecureRandom;
@@ -17,10 +17,11 @@ public class Contact implements Serializable {
         this.HexID = HexIDFormatting();
     }
 
-    public Contact(String name, String email, int phone_number) {
+    public Contact(String name, String email, int phone_number, String HexID) {
         this.name = name;
         this.email = email;
         this.phone_number = phone_number;
+        this.HexID = HexID;
     }
 
     private synchronized String HexIDFormatting() {
@@ -56,6 +57,10 @@ public class Contact implements Serializable {
 
     public void setPhone_number(int phone_number) {
         this.phone_number = phone_number;
+    }
+
+    public void setHexID(String HexID) {
+        this.HexID = HexID;
     }
 
     // Getters
