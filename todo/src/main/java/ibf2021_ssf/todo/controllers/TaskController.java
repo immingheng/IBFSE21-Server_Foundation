@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,7 @@ import ibf2021_ssf.todo.service.TaskService;
 
 @Controller
 // must link with HTML form's action
-@RequestMapping(path = "/task", produces = MediaType.TEXT_HTML_VALUE)
+@RequestMapping(path = "/", produces = MediaType.TEXT_HTML_VALUE)
 public class TaskController {
 
     @Autowired
@@ -38,8 +39,21 @@ public class TaskController {
 
     private final Logger logger = Logger.getLogger(TodoApplication.class.getName());
 
+    @GetMapping
+    public String loginForm(Model model) {
+        return "task";
+    }
+
+    @PostMapping(path = "/task")
+    public String submitLogin(@RequestBody MultiValueMap<String, String> loginID, Model model) {
+        String username = loginID.getFirst("login");
+        // TODO Check if username exists within database
+        // if it exists, load its tasklist else use a new instance
+        return "task";
+    }
+
     // Handling submission of form
-    @PostMapping
+    @PostMapping(path = "/task")
     public String formSubmit(@RequestBody MultiValueMap<String, String> form, Model model) {
         String taskName = form.getFirst("taskName");
         String hiddenTask = form.getFirst("contents");
@@ -71,7 +85,7 @@ public class TaskController {
         logger.info("hiddenTask ---> " + hiddenTask);
         logger.info("Tasks --> " + tasks);
 
-        return "index";
+        return "task";
     }
 
     @PostMapping("save")
@@ -79,7 +93,7 @@ public class TaskController {
         String contents = form.getFirst("contents");
         logger.info("contents --> " + contents);
         taskService.save("my-todo", contents);
-        return "index";
+        return "task";
     }
 
 }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Marvel Superhero details</title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container" data-th-object="${hero}">
+        <table class="d-flex justify-content-around">
+            <tr class="d-flex justify-content-center">
+                <td class="text-primary">
+                    <h1 data-th-text="*{name}"></span></h1>
+                </td>
+            </tr>
+            <tr class="d-flex justify-content-center">
+                <td><img data-th-src="*{thumbnail}" width="500" height="500" /></td>
+            </tr>
+            <tr class="d-flex justify-content-center">
+                <td class="text-danger">
+                    <p data-th-text="*{description}"></p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
